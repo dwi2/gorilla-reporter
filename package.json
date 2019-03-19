@@ -1,0 +1,12 @@
+{
+  "name": "gorilla-reporter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "dwi2<dwi2@dwi2.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "^6.0.2"
+  }
+}
