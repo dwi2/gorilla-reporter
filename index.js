@@ -30,10 +30,10 @@ function GorillaReporter(runner) {
 
   runner.on('fail', function(test, err) {
     failures++;
-    console.log(`FUCK: ${test.fullTitle()} -- error: ${err.message}`);
+    console.log(`幹: ${test.fullTitle()} -- 這個錯了啦: ${err.message}`);
   });
 
   runner.on('end', function() {
-    console.log('end: %d/%d', passes, passes + failures);
+    console.log(`晚上要吃什麼? ${passes}/${passes + failures}`);
   });
 }
