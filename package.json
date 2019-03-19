@@ -2,14 +2,20 @@
   "name": "gorilla-reporter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "main": "gorilla-reporter.js",
+  "scripts": {
+    "precommit": "prettier --write ./**/*.js",
+    "test": "mocha test/**/*.js --reporter ./gorilla-reporter.js"
+  },
   "author": "dwi2<dwi2@dwi2.com>",
   "license": "MIT",
   "dependencies": {
     "mocha": "^6.0.2"
   },
-  "engines" : {
-    "node" : ">=6.4.0"
+  "engines": {
+    "node": ">=6.4.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4"
   }
 }
