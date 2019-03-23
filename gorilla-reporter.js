@@ -54,6 +54,11 @@ function GorillaReporter(runner) {
     write(`幹: ${test.fullTitle()} -- 這個錯了啦: ${err.message}\n`);
   });
 
+  runner.on('pending', (test) => {
+    write('\n');
+    write(`額 哥這個 ${test.fullTitle()} 不用測`);
+  });
+  
   runner.on('end', () => {
     write('\n');
     if (failures > 0) {

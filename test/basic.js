@@ -15,6 +15,11 @@ describe('Basic', () => {
     }, 1000);
   });
 
+  it('should only test in the correct environment', function(done) {
+      this.skip();
+      done();
+  });
+
   it('should print swearing when tests fail', () => {
     assert.fail('我要崩潰了!');
   });
