@@ -15,7 +15,7 @@ describe('Basic', () => {
     }, 1000);
   });
 
-  it('should only test in the correct environment', function(done) {
+  it('should only test in the correct environment', function() {
       this.skip();
   });
 
