@@ -1,7 +1,14 @@
 'use strict';
 const mocha = require('mocha');
 
-const BANANA =`
+const chalk = require('chalk');
+const green = chalk.greenBright;
+const yellow = chalk.yellowBright;
+const red = chalk.redBright;
+const blue = chalk.blueBright;
+const gray = chalk.gray;
+
+const BANANA = yellow(`
         .-.
        /  |
       |  /
@@ -11,7 +18,7 @@ const BANANA =`
       |  \\
        \\  |
 jgs      '-'
-`;
+`);
 
 function write(text) {
   process.stdout.write(text);
@@ -19,18 +26,17 @@ function write(text) {
 
 function gorillaSays(text) {
   const words = text ? text : '';
-  write(`
-           ."\`".
-       .-./ _=_ \\.-.  ${words}
-      {  (,(oYo),) }}   )
-      {{ |   "   |} }  /
-      { { \\(---)/  }}
-      {{  }'-=-'{ } }
-      { { }._:_.{  }}
-      {{  } -:- { } }
-jgs   {_{ }\`===\`{  _}
-     ((((\\)     (/))))
-  `)
+  write(chalk.hex('#512a07')(`
+           ."\`".                     
+       .-./ _=_ \\.-.  ${words} 
+      {  (,(oYo),) }}   )            
+      {{ |   "   |} }  /             
+      { { \\(---)/  }}                
+      {{  }'-=-'{ } }                
+      { { }._:_.{  }}                
+      {{  } -:- { } }                
+jgs   {_{ }\`===\`{  _}                
+     ((((\\)     (/))))               `))
 }
 
 function GorillaReporter(runner) {
@@ -45,28 +51,27 @@ function GorillaReporter(runner) {
 
   runner.on('pass', (test) => {
     passes++;
-    write(`A_A\t${test.fullTitle()}\n`);
+    write(`${green('A_A')}\t${test.fullTitle()}\n`);
   });
 
   runner.on('fail', (test, err) => {
     failures++;
     write('\n');
-    write(`幹: ${test.fullTitle()} -- 這個錯了啦: ${err.message}\n`);
+    write(`${red('幹')} ${test.fullTitle()} ${gray(`這個錯了啦: ${err.message}`)}\n`);
   });
 
   runner.on('pending', (test) => {
     write('\n');
-    write(`額 哥這個 ${test.fullTitle()} 不用測`);
+    write(`\n${blue('額')} ${gray('哥這個')} ${test.fullTitle()} ${gray('不用測')}\n`);
   });
   
   runner.on('end', () => {
     write('\n');
     if (failures > 0) {
-      write(`${passes + failures}個裡面錯了${failures}個, 我要被你笑死!
-      `);
+      write(`${passes + failures}${gray('個裡面錯了')}${failures}${gray('個, 我要被你笑死!')}`);
     } else {
       write(BANANA);
-      write(`${passes}/${passes + failures} 全部都對了! 很不錯耶~~`);
+      write(`${passes}/${passes + failures} ${gray('全部都對了! 很不錯耶~~')}`);
     }
     write('\n');
   });
