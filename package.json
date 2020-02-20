@@ -1,6 +1,6 @@
 {
   "name": "gorilla-reporter",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "",
   "main": "gorilla-reporter.js",
   "scripts": {
@@ -10,7 +10,8 @@
   "author": "dwi2<dwi2@dwi2.com>",
   "license": "MIT",
   "dependencies": {
-    "mocha": "^6.0.2"
+    "chalk": "^2.4.2",
+    "mocha": "^6.1.4"
   },
   "engines": {
     "node": ">=6.4.0"
