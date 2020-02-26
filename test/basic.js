@@ -14,8 +14,8 @@ describe('Basic', () => {
     }, 1000);
   });
 
-  it('should only test in the correct environment', function() {
-    this.skip();
+  it.skip('should only test in the correct environment', () => {
+    
   });
 
   it('should print swearing when tests fail', () => {
